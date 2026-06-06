@@ -1,1 +1,34 @@
+<header class="store-header">
 
+    <div class="top-nav">
+        <div class="container">
+            <div class="top-nav-inner center-between relative space-x-4 rtl:space-x-reverse">
+                <div class="right-side grow">
+                    {% component 'footer.contacts' with {is_header:true} %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="header-mainbar" class="header-mainbar">
+        <div class="container inner bg-inherit">
+            <div class="container sides-wrap">
+                <div class="right-side flex items-center lg:grow">
+                    <a class="navbar-brand" href="{{ store.url }}">
+                        <img src="{{ store.logo }}" alt="{{ store.name }}"/>
+                    </a>
+                    <salla-search class="search-bar" id="header-search" inline></salla-search>
+                </div>
+
+                <div class="left-side flex items-center justify-center lg:justify-end lg:pr-4 ltr:pl-4 lg:px-0">
+                    {% if user.type == 'user' %}
+                        <salla-user-menu></salla-user-menu>
+                    {% else %}
+                        <a class="header-icon-button login-button" onclick="salla.event.dispatch('login::open')"></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
