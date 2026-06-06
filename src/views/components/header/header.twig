@@ -1,42 +1,24 @@
-<header class="store-header">
-
-    <div class="top-nav">
+<header class="store-header" style="background-color: #ffffff; border-bottom: 1px solid #eee;">
+    <div id="header-mainbar" class="header-mainbar py-2">
         <div class="container">
-            <div class="top-nav-inner center-between relative space-x-4 rtl:space-x-reverse">
-                <div class="right-side grow">
-                    {% component 'footer.contacts' with {is_header:true} %}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="header-mainbar" class="header-mainbar">
-        <div class="container inner bg-inherit">
-            <div class="container sides-wrap">
+            <div class="flex items-center justify-between">
                 
-                <!-- جهة اليمين: اللوجو فقط -->
-                <div class="right-side flex items-center lg:grow">
-                    <a class="navbar-brand" href="{{ store.url }}">
-                        <img src="{{ store.logo }}" alt="{{ store.name }}"/>
-                    </a>
-                </div>
-
-                <!-- جهة اليسار: السلة وأيقونة المستخدم -->
-                <div class="left-side flex items-center justify-start lg:justify-start lg:pl-4 space-x-4 rtl:space-x-reverse">
-                    
-                    <!-- أيقونة السلة -->
+                <!-- اليسار: سلة ومستخدم -->
+                <div class="flex items-center space-x-3 rtl:space-x-reverse">
                     <salla-cart-summary class="header-icon-button"></salla-cart-summary>
-
-                    <!-- أيقونة المستخدم -->
                     {% if user.type == 'user' %}
                         <salla-user-menu></salla-user-menu>
                     {% else %}
                         <a class="header-icon-button login-button" onclick="salla.event.dispatch('login::open')"></a>
                     {% endif %}
                 </div>
+
+                <!-- اليمين: بحث -->
+                <div class="flex-grow pl-4">
+                    <salla-search class="search-bar" id="header-search" style="height: 35px; width: 100%;" inline></salla-search>
+                </div>
                 
             </div>
         </div>
     </div>
-
 </header>
