@@ -13,20 +13,21 @@
     <div id="header-mainbar" class="header-mainbar">
         <div class="container inner bg-inherit">
             <div class="container sides-wrap">
+                
                 <div class="right-side flex items-center lg:grow">
                     <a class="navbar-brand" href="{{ store.url }}">
                         <img src="{{ store.logo }}" alt="{{ store.name }}"/>
                     </a>
-                    <salla-search class="search-bar" id="header-search" inline></salla-search>
                 </div>
 
-                <div class="left-side flex items-center justify-center lg:justify-end lg:pr-4 ltr:pl-4 lg:px-0">
+                <div class="left-side flex items-center justify-start lg:justify-start lg:pl-4">
                     {% if user.type == 'user' %}
                         <salla-user-menu></salla-user-menu>
                     {% else %}
                         <a class="header-icon-button login-button" onclick="salla.event.dispatch('login::open')"></a>
                     {% endif %}
                 </div>
+                
             </div>
         </div>
     </div>
